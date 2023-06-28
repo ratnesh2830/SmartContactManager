@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Otp verification</title>
+</head>
+<body>
+<section>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+                        <!--email form-->
+                        <div th:if="${message}" th:classappend="${message.type == 'alert-success' ? 'green-box' : 'red-box'}" class="alert">
+                            <p class="text-center" th:classappend="${message.type == 'alert-danger' ? 'red-text' : ''}" th:text="${message.content}"></p>
+                        </div>
+
+                        <form  action="" th:action="@{/verify_otp}" method="post">
+
+                            <div class="form-group">
+                                <input name="otp" required type="text" placeholder="Enter your OTP here" class="form-control" />
+                            </div>
+
+                            <div class="container text-center my-3">
+                                <button class="btn btn-success">Verify</button>
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
